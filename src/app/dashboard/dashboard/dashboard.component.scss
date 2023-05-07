@@ -1,0 +1,63 @@
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background: gray;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #035fb2;
+  border-radius: 10px;
+}
+
+.row>.card {
+  height: 80px;
+  width: 210px;
+  border-left: 6px solid #45a8ff;
+}
+
+.title {
+  font-size: 14px;
+  color: grey;
+  padding-top: 1px;
+  font-weight: 500;
+}
+
+.count {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: -5px;
+}
+
+#myDiv {
+  height: 380px;
+}
+
+.chart {
+  // overflow: scroll;
+
+}
+
+@media (max-width:"576px") {
+  .row>.card {
+    width: 250px;
+  }
+  .chart{
+    height: 300px;
+    padding: 0px;
+  }
+}

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-1 sidebar shadow-5-strong">
+      <div class="icon-box">
+        <img *ngIf="!isDashboard" src="../../../assets/images/Dashboard.svg" (click)="select('dashboard')"
+          alt="dashboard">
+        <img *ngIf="isDashboard" src="../../../assets/images/Dashboard-active.svg" (click)="select('dashboard')"
+          alt="dashboard">
+
+        <img *ngIf="!isProject" class="mt-2" src="../../../assets/images/Project-list.svg" (click)="select('project')"
+          alt="project">
+        <img *ngIf="isProject" class="mt-2" src="../../../assets/images/Project-list-active.svg"
+          (click)="select('project')" alt="project">
+
+        <img *ngIf="!isCreateProject" class="mt-3 border border-primary border-end-0 border-bottom-0 border-start-0"
+          src="../../../assets/images/create-project.svg" (click)="select('create-project')" alt="create-project">
+        <img *ngIf="isCreateProject" class="mt-3 border border-primary border-end-0 border-bottom-0 border-start-0"
+          src="../../../assets/images/create-project-active.svg" (click)="select('create-project')"
+          alt="create-project">
+        <img class="logout-btn" src="../../../assets/images/Logout.svg" (click)="logout()" alt="logout">
+      </div>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11">
+      <div class="row">
+        <div class="col-lg-12 col-md-6 col-sm-12">
+          <div class="top-bg">
+            <span class="text-light head-text">{{title}}</span>
+            <img class="bg-img" src="../../../assets/images/Logo.svg" alt="">
+            <img class="logout-btn" (click)="logout()" src="../../../assets/images/Logout.svg" alt="logout">
+          </div>
+        </div>
+      </div>
+      <div class="content p-3 col-lg-12 col-md-12 col-sm-12">
+        <div class="router">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

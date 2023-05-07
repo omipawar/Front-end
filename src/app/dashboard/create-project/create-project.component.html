@@ -1,0 +1,149 @@
+<div class="card shadow-5-strong col-lg-12">
+  <div class="card-body p-4">
+    <form [formGroup]="projectForm" (submit)="creatProject(projectForm.value)">
+      <div class="row">
+        <!-- Project theme -->
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter Project Theme" rows="3"
+              formControlName="projectName"></textarea>
+            <p *ngIf="projectForm.get('projectName')?.invalid && projectForm.get('projectName')?.touched"
+              class="text-danger warn-msg">Project Name is required</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3"></div>
+        <div class="col-lg-3 col-md-3 save-project">
+          <button type="submit" class="btn btn-primary btn-rounded p-1">Save Project</button>
+        </div>
+
+        <!-- reason -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" class="form-name">Reason</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="reason">
+              <option value="" disabled>Select Reason</option>
+              <option *ngFor="let reason of reasons;" value="{{reason}}">{{reason}}</option>
+            </select>
+            <p *ngIf="projectForm.get('reason')?.invalid && projectForm.get('reason')?.touched"
+              class="text-danger warn-msg">Reason is required</p>
+          </div>
+        </div>
+
+        <!-- type -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" class="form-name">Type</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="type">
+              <option value="" disabled>Select Type</option>
+              <option *ngFor="let type of types;" value="{{type}}">{{type}}</option>
+            </select>
+            <p *ngIf="projectForm.get('type')?.invalid && projectForm.get('type')?.touched"
+              class="text-danger warn-msg">Type is required</p>
+          </div>
+        </div>
+
+        <!-- division -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" class="form-name">Division</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="division">
+              <option value="" disabled>Select Division</option>
+              <option *ngFor="let division of divisions;" value="{{division}}">{{division}}</option>
+            </select>
+            <p *ngIf="projectForm.get('division')?.invalid && projectForm.get('division')?.touched"
+              class="text-danger warn-msg">Division is required</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3"></div>
+
+        <!-- category -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" class="form-name">Category</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="category">
+              <option value="" disabled>Select Category</option>
+              <option *ngFor="let category of categories;" value="{{category}}">{{category}}</option>
+            </select>
+            <p *ngIf="projectForm.get('category')?.invalid && projectForm.get('category')?.touched"
+              class="text-danger warn-msg">Category is required</p>
+          </div>
+        </div>
+
+        <!-- Priority -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" class="form-name">Priority</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="priority">
+              <option value="" disabled>Select Priority</option>
+              <option *ngFor="let priority of priorities;" value="{{priority}}">{{priority}}</option>
+            </select>
+            <p *ngIf="projectForm.get('priority')?.invalid && projectForm.get('priority')?.touched"
+              class="text-danger warn-msg">Priority is required</p>
+          </div>
+        </div>
+
+        <!-- Department -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" class="form-name">Department</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="department">
+              <option value="" disabled>Select Department</option>
+              <option *ngFor="let department of departments;" value="{{department}}">{{department}}</option>
+            </select>
+            <p *ngIf="projectForm.get('department')?.invalid && projectForm.get('department')?.touched"
+              class="text-danger warn-msg">Department is required</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3"></div>
+
+        <!-- start date -->
+        <div class="col-lg-3">
+          <label for="exampleFormControlSelect1" class="form-name">Start Date as per Project Plan</label><br>
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
+              formControlName="startDate">
+            <button class="btn btn-outline-primary" (click)="d.toggle();" type="button"><i class="fa fa-calendar"
+                aria-hidden="true"></i></button>
+          </div>
+          <p *ngIf="projectForm.get('startDate')?.invalid && projectForm.get('startDate')?.touched"
+            class="text-danger warn-msg">Start Date is required</p>
+        </div>
+
+        <!-- end Date -->
+        <div class="col-lg-3">
+          <label for="exampleFormControlSelect1" class="form-name">End Date as per Project Plan</label><br>
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #d1="ngbDatepicker"
+              formControlName="endDate">
+            <button class="btn btn-outline-primary" (click)="d1.toggle();" type="button"><i class="fa fa-calendar"
+                aria-hidden="true"></i></button>
+          </div>
+          <p *ngIf="projectForm.get('endDate')?.invalid && projectForm.get('endDate')?.touched"
+            class="text-danger warn-msg">End Date is required</p>
+        </div>
+
+        <!-- location -->
+        <div class="col-lg-3">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" class="form-name">Location</label>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="location">
+              <option value="" disabled>Select Location</option>
+              <option *ngFor="let location of locations;" value="{{location}}">{{location}}</option>
+            </select>
+            <p *ngIf="projectForm.get('location')?.invalid && projectForm.get('location')?.touched"
+              class="text-danger warn-msg">Location is required</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3">
+          <label for="exampleFormControlSelect1" class="form-name">Status : <b class="text-dark">Registered</b></label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

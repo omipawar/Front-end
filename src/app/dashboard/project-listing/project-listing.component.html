@@ -1,0 +1,126 @@
+<div class="card shadow-5-strong col-lg-12">
+  <div class="pt-3 filter">
+    <div class="row">
+      <div class="col-lg-4 col-sm-6">
+        <div class="container">
+          <div class="nosubmit">
+            <input class="nosubmit" type="search" placeholder="Search..." (input)="getSearchData($event)"
+              [(ngModel)]="searchText">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-sm-1"></div>
+      <div class="col-lg-3 col-sm-5 sort">
+        <b>Sort By:</b>
+        <select name="language" id="language" (change)="getSortedData($event)" [(ngModel)]="sortBy">
+          <option value="reason">Reason</option>
+          <option value="type">Type</option>
+          <option value="division">Division</option>
+          <option value="category">Category</option>
+          <option value="priority">Priority</option>
+          <option value="department">Department</option>
+          <option value="location">Location</option>
+          <option value="status">Status</option>
+          <option value="startDate">Start Date</option>
+          <option value="endDate">End Date</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isMobileView" class="table-responsive table-wrapper">
+    <table class="table table-sm table-striped">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">Project Name</th>
+          <th scope="col">Reason</th>
+          <th scope="col">Type</th>
+          <th scope="col">Division</th>
+          <th scope="col">Category</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Dept.</th>
+          <th scope="col">Location</th>
+          <th scope="col">Status</th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody class="table-group-divider table-divider-color">
+        <tr
+          *ngFor="let project of projects | paginate: { itemsPerPage: itemsPerPage, currentPage: pageNo, totalItems: totalProjects }">
+          <td style="width: 300px;">
+            <span class="table-title">{{project.projectName}}</span> <br>
+            <span class="subtitle">{{project.startDate | date}} to {{project.endDate | date}}</span>
+          </td>
+          <td class="table-text">{{project.reason}}</td>
+          <td class="table-text">{{project.type}}</td>
+          <td class="table-text">{{project.division}}</td>
+          <td class="table-text">{{project.category}}</td>
+          <td class="table-text">{{project.priority}}</td>
+          <td class="table-text">{{project.department}}</td>
+          <td class="table-text">{{project.location}}</td>
+          <td class="table-text">{{project.status}}</td>
+          <td style="width: 450px;">
+            <button class="btn-sm btn-primary btn-rounded ms-1 mt-1" [disabled]="project.status === 'Running'"
+              (click)="changeStatus(project.status, 'Running', project._id)">Start</button>
+
+            <button class="btn-sm btn-outline-primary btn-rounded ms-1 mt-1"
+              (click)="changeStatus(project.status, 'Closed', project._id)"
+              [disabled]="project.status === 'Closed'">Close</button>
+
+            <button class="btn-sm btn-outline-primary btn-rounded ms-1 mt-1"
+              (click)="changeStatus(project.status, 'Cancelled', project._id)"
+              [disabled]="project.status === 'Cancelled'">Cancel</button>
+          </td>
+        </tr>
+        <tr *ngIf="projects.length === 0">
+          <td colspan="11">
+            <span class="text-danger text-center">No Data Found...!</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="isMobileView">
+    <div class="card shadow-5-strong m-4 pb-0 mt-2"
+      *ngFor="let project of projects | paginate: { itemsPerPage: itemsPerPage, currentPage: pageNo, totalItems: totalProjects }">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-8">
+            <h5 class="card-title table-title">{{project.projectName}}</h5>
+            <p class="card-text subtitle">{{project.startDate | date}} to {{project.endDate | date}}</p>
+          </div>
+          <div class="col-4">
+            <span class="table-text">{{project.status}}</span>
+          </div>
+          <div class="col-12">
+            <span class="table-text">Reason : {{project.reason}}</span><br>
+            <span class="table-text">Type : {{project.type}}</span><br>
+            <span class="table-text">Division : {{project.division}}</span><br>
+            <span class="table-text">Category : {{project.category}}</span><br>
+            <span class="table-text">Priority : {{project.priority}}</span><br>
+            <span class="table-text">Department : {{project.department}}</span><br>
+            <span class="table-text">Location : {{project.location}}</span>
+          </div>
+          <div class="col-3">
+            <button class="btn-sm btn-primary btn-rounded ms-1 mt-1" [disabled]="project.status === 'Running'"
+              (click)="changeStatus(project.status, 'Running', project._id)">Start</button>
+          </div>
+          <div class="col-3">
+            <button class="btn-sm btn-outline-primary btn-rounded ms-1 mt-1"
+              (click)="changeStatus(project.status, 'Closed', project._id)"
+              [disabled]="project.status === 'Closed'">Close</button>
+          </div>
+          <div class="col-3">
+            <button class="btn-sm btn-outline-primary btn-rounded ms-1 mt-1"
+              (click)="changeStatus(project.status, 'Cancelled', project._id)"
+              [disabled]="project.status === 'Cancelled'">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <pagination-controls class="my-pagination" previousLabel="" nextLabel="" (pageChange)="pageChanged($event)">
+
+  </pagination-controls>
+</div>

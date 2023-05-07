@@ -1,0 +1,30 @@
+<div class="row px-4 d-flex justify-content-around">
+  <div class="card mx-1 my-1">
+    <span class="title">Total Projects</span>
+    <span class="count">{{counts?.totalProjects ? counts?.totalProjects : 0}}</span>
+  </div>
+  <div class="card mx-1 my-1">
+    <span class="title">Closed</span>
+    <span class="count">{{counts?.closed ? counts?.closed : 0}}</span>
+  </div>
+  <div class="card mx-1 my-1">
+    <span class="title">Running</span>
+    <span class="count">{{counts?.running ? counts?.running : 0}}</span>
+  </div>
+  <div class="card mx-1 my-1">
+    <span class="title">Closure Delay</span>
+    <span class="count">{{counts?.closureDelay ? counts?.closureDelay : 0}}</span>
+  </div>
+  <div class="card mx-1 my-1">
+    <span class="title">Cancelled</span>
+    <span class="count">{{counts?.cancelled ? counts?.cancelled : 0}}</span>
+  </div>
+</div>
+<div class="row m-2">
+  <div class="col-lg-6 mt-3 col-md-12 com-sm-12">
+    <h5>Department wise - Total vs Closed</h5>
+    <div class="card shadow-5-strong chart img-fluid">
+      <div id='myDiv'></div>
+    </div>
+  </div>
+</div>

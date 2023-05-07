@@ -1,0 +1,136 @@
+.sidebar {
+  height: 100wh;
+  // width: 80px;
+  background-color: white;
+  position: static;
+}
+
+.icon-box {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-box img {
+  height: 45px;
+  width: 35px;
+  cursor: pointer;
+}
+
+.top-bg {
+  position: fixed;
+  top: 0;
+  height: 110px;
+  width: 100%;
+  background-image: url(../../../assets/images/Header-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.head-text {
+  margin-left: 30px;
+  font-size: 1.1rem;
+  width: 130px;
+}
+
+.bg-img {
+  height: 60px;
+  width: 60px;
+  margin-left: 30%;
+  margin-right: auto;
+}
+
+.col-lg-11 {
+  padding: 0px;
+}
+
+.front {
+  z-index: 1;
+}
+
+// Content
+.content {
+  margin-top: 70px;
+}
+
+.router {
+  z-index: 99;
+}
+
+.logout-btn {
+  position: absolute;
+  bottom: 30px;
+}
+
+.top-bg .logout-btn {
+  position: absolute;
+  right: 100px;
+  top: 30px;
+  height: 45px;
+  width: 35px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width:"576px") {
+  .sidebar {
+    height: 100px;
+    width: 100%;
+    margin-top: 100px;
+    z-index: 10;
+    position: fixed;
+  }
+
+  .top-bg {
+    z-index: 10;
+  }
+
+  .icon-box {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+  }
+
+  .icon-box img {
+    height: 45px;
+    width: 35px;
+  }
+
+  .bg-img {
+    margin: auto;
+  }
+
+  .head-text {
+    font-size: 0.9rem;
+    width: 100px;
+  }
+
+  .bg-img {
+    height: 50px;
+    width: 50px;
+    display: none;
+  }
+
+  .content {
+    margin-top: 220px;
+  }
+
+  .top-bg .logout-btn {
+    right: 30px;
+    display: block;
+  }
+
+  .icon-box .logout-btn {
+    display: none;
+  }
+
+
+}

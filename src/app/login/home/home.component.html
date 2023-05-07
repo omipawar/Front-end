@@ -1,0 +1,67 @@
+<div class="main-div">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-3 col-sm-2"></div>
+      <div class="col-lg-4 col-md-6 col-sm-8 front text-light text-center">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="logo">
+              <img class="img-fluid" src="../../../assets/images/Logo.svg" alt="Logo">
+              <span class="logoline">Online Project Management</span>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="card p-3 shadow-5-strong">
+              <div class="card-body mt-3">
+                <h5 class="card-title text-dark text-secondary">Login to get started</h5>
+                <form class="mt-3" [formGroup]="loginForm" (submit)="login(loginForm.value)">
+                  <mdb-form-control class="mt-3">
+                    <input mdbInput type="text" id="form1" class="form-control" formControlName="userName" />
+                    <label mdbLabel class="form-label" for="form1">Email</label>
+                  </mdb-form-control>
+                  <div class="subfont" style="color: red;"
+                    *ngIf="loginForm.get('userName').invalid && (loginForm.get('userName').touched)">Invalid Email</div>
+
+                  <div class="mt-3">
+                    <label class="visually-hidden" for="inlineFormInputGroupUsername">Password</label>
+                    <div class="input-group">
+                      <input mdbInput [type]="type" class="form-control" id="inlineFormInputGroupUsername"
+                        placeholder="Password" formControlName="password" />
+                      <div *ngIf="!show" class="input-group-text"><img src="../../../assets/images/hide-password.svg"
+                          class="eye" alt="" (click)="showHide()"> </div>
+                      <div *ngIf="show" class="input-group-text"><img src="../../../assets/images/hide-password.svg"
+                          class="eye" alt="" (click)="showHide()"> </div>
+                    </div>
+                  </div>
+                  <span class="subfont" style="color: red;"
+                    *ngIf="loginForm.get('password').invalid && (loginForm.get('password').touched)">Invalid Password</span>
+
+                  <div class="row">
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6 mt-4">
+                      <a href="" class="subfont">Forgot password?</a>
+                    </div>
+                  </div>
+                  <!-- Submit button -->
+                  <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                      <button type="submit" [disabled]="!loginForm.valid"
+                        class="btn btn-primary btn-block mt-5">Login</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 mt-2 text-center">
+            <span class="text-danger" *ngIf="invalidCredentials">Invalid Credentials</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-3 col-sm-2"></div>
+    </div>
+  </div>
+  <!-- <img src="../../../assets/images/login-bg-1.png" class="img-fluid bg" alt=""> -->
+</div>
