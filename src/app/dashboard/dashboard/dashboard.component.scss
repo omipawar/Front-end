@@ -2,6 +2,7 @@
   height: 4px;
   width: 4px;
   background: gray;
+  display: none;
 }
 
 /* Track */
@@ -52,12 +53,33 @@
 
 }
 
+.borders {
+  border: 2px solid red;
+}
+
+.card-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 100px;
+  overflow: hidden;
+  overflow: scroll;
+  flex-wrap: wrap;
+}
+
 @media (max-width:"576px") {
   .row>.card {
     width: 250px;
   }
-  .chart{
+
+  .chart {
     height: 300px;
     padding: 0px;
+  }
+
+  .card-mobile {
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 }
