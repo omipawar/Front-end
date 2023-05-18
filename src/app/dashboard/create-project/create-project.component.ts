@@ -49,19 +49,17 @@ export class CreateProjectComponent implements OnInit {
   }
 
   creatProject(data: Project): void {
-    // if (this.projectForm.valid) {
-    //   let startDate: any = this.getDate(data.startDate);
-    //   let endDate: any = this.getDate(data.endDate);
-    //   data.startDate = startDate;
-    //   data.endDate = endDate;
-    //   this.dashboardService.addProject(data).subscribe((res: any) => {
-    //     if (res.status) {
-    //       this.reset();
-    //     }
-    //   })
-    // }
-    console.log(this.projectForm);
-
+    if (this.projectForm.valid) {
+      let startDate: any = this.getDate(data.startDate);
+      let endDate: any = this.getDate(data.endDate);
+      data.startDate = startDate;
+      data.endDate = endDate;
+      this.dashboardService.addProject(data).subscribe((res: any) => {
+        if (res.status) {
+          this.reset();
+        }
+      })
+    }
   }
   reset() {
     this.projectForm.markAsPristine();
