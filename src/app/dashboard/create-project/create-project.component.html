@@ -15,7 +15,6 @@
         <div class="col-lg-3 col-md-3 save-project">
           <button type="submit" class="btn btn-primary btn-rounded p-1">Save Project</button>
         </div>
-
         <!-- reason -->
         <div class="col-lg-3">
           <div class="form-group">
@@ -28,7 +27,6 @@
               class="text-danger warn-msg">Reason is required</p>
           </div>
         </div>
-
         <!-- type -->
         <div class="col-lg-3">
           <div class="form-group">
@@ -41,7 +39,6 @@
               class="text-danger warn-msg">Type is required</p>
           </div>
         </div>
-
         <!-- division -->
         <div class="col-lg-3">
           <div class="form-group">
@@ -54,9 +51,7 @@
               class="text-danger warn-msg">Division is required</p>
           </div>
         </div>
-
         <div class="col-lg-3"></div>
-
         <!-- category -->
         <div class="col-lg-3">
           <div class="form-group">
@@ -69,7 +64,6 @@
               class="text-danger warn-msg">Category is required</p>
           </div>
         </div>
-
         <!-- Priority -->
         <div class="col-lg-3">
           <div class="form-group">
@@ -82,7 +76,6 @@
               class="text-danger warn-msg">Priority is required</p>
           </div>
         </div>
-
         <!-- Department -->
         <div class="col-lg-3">
           <div class="form-group">
@@ -95,14 +88,12 @@
               class="text-danger warn-msg">Department is required</p>
           </div>
         </div>
-
         <div class="col-lg-3"></div>
-
         <!-- start date -->
         <div class="col-lg-3">
           <label for="exampleFormControlSelect1" class="form-name">Start Date as per Project Plan</label><br>
           <div class="input-group">
-            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
+            <input class="form-control" (dateSelect)="endDateSelected()" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
               formControlName="startDate">
             <button class="btn btn-outline-primary" (click)="d.toggle();" type="button"><i class="fa fa-calendar"
                 aria-hidden="true"></i></button>
@@ -110,20 +101,20 @@
           <p *ngIf="projectForm.get('startDate')?.invalid && projectForm.get('startDate')?.touched"
             class="text-danger warn-msg">Start Date is required</p>
         </div>
-
         <!-- end Date -->
         <div class="col-lg-3">
           <label for="exampleFormControlSelect1" class="form-name">End Date as per Project Plan</label><br>
           <div class="input-group">
-            <input class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #d1="ngbDatepicker"
-              formControlName="endDate">
+            <input class="form-control" (dateSelect)="endDateSelected()" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker
+              #d1="ngbDatepicker" formControlName="endDate">
             <button class="btn btn-outline-primary" (click)="d1.toggle();" type="button"><i class="fa fa-calendar"
                 aria-hidden="true"></i></button>
           </div>
-          <p *ngIf="projectForm.get('endDate')?.invalid && projectForm.get('endDate')?.touched"
+          <p *ngIf="projectForm.get('endDate')?.errors?.['required'] && projectForm.get('endDate')?.touched"
             class="text-danger warn-msg">End Date is required</p>
+          <p *ngIf="projectForm.get('endDate')?.errors?.['lessThanStartDate'] && projectForm.get('endDate')?.touched"
+            class="text-danger warn-msg">End Date should greater than start date</p>
         </div>
-
         <!-- location -->
         <div class="col-lg-3">
           <div class="form-group">
@@ -136,7 +127,6 @@
               class="text-danger warn-msg">Location is required</p>
           </div>
         </div>
-
         <div class="col-lg-3"></div>
         <div class="col-lg-3"></div>
         <div class="col-lg-3"></div>

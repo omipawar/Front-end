@@ -17,7 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HomeComponent,
     CreateProjectComponent,
     DashboardComponent,
-    ProjectListingComponent
+    ProjectListingComponent,
   ],
   imports: [
     CommonModule,

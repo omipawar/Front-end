@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.router.navigate(['dashboard/create-project']);
       }
     } else {
-      alert("Please click proper option");
+      // alert("Please click proper option");
     }
 
   }

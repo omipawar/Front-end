@@ -87,11 +87,11 @@ export class ProjectListingComponent implements OnInit {
       this.dashboardService.updateStatus(data).subscribe((res: any) => {
         if (res.status) {
           this.getProjectData();
-          alert("Status updated...!")
+          // alert("Status updated...!")
         }
       })
     } else {
-      alert("You are trying to update same status")
+      // alert("You are trying to update same status")
     }
   }
 
